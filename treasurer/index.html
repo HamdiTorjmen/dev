@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Création de rapport financier associatif" />
+  <title>Rapport financier | Trésorerie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <a class="brand" href="#top">Trésorerie<span>.</span></a>
+      <div class="document-state"><span class="state-dot"></span>Brouillon</div>
+      <div class="topbar-actions"><a class="document-link" href="don.html">Reçu de don</a><button class="button button-dark" type="button" data-print>Imprimer / PDF <span aria-hidden="true">↗</span></button></div>
+    </header>
+
+    <section class="intro" id="top">
+      <p class="kicker">Document financier · Version 01</p>
+      <h1>Rapport<br /><em>financier.</em></h1>
+      <p class="intro-copy">Préparez une synthèse claire des mouvements de l’association, prête à être contrôlée et archivée.</p>
+    </section>
+
+    <form id="report-form">
+      <section class="panel identity-panel" aria-labelledby="identity-title">
+        <div class="panel-heading"><p class="panel-number">01 / Identification</p><h2 id="identity-title">Le contexte<br />du rapport.</h2></div>
+        <div class="field-grid">
+          <label>Nom de l’association<input name="association" type="text" placeholder="Association loi 1901" required /></label>
+          <label>Exercice concerné<input name="period" type="text" placeholder="Du 01/01/2026 au 31/12/2026" required /></label>
+          <label>Référence du document<input name="reference" type="text" value="RF-2026-001" /></label>
+          <label>Date de génération<input name="date" type="date" /></label>
+        </div>
+      </section>
+
+      <section class="panel" aria-labelledby="entries-title">
+        <div class="panel-heading entries-heading"><div><p class="panel-number">02 / Mouvements</p><h2 id="entries-title">Recettes et<br />dépenses.</h2></div><p class="helper">Saisissez chaque mouvement<br />avec son justificatif.</p></div>
+        <div class="tables-grid">
+          <div class="entry-group">
+            <div class="group-title"><h3>Recettes</h3><span class="total total-income">0,00 €</span></div>
+            <div class="entry-list" data-list="income"></div>
+            <button class="add-entry" type="button" data-add="income">+ Ajouter une recette</button>
+          </div>
+          <div class="entry-group">
+            <div class="group-title"><h3>Dépenses</h3><span class="total total-expense">0,00 €</span></div>
+            <div class="entry-list" data-list="expense"></div>
+            <button class="add-entry" type="button" data-add="expense">+ Ajouter une dépense</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel summary-panel" aria-labelledby="summary-title">
+        <div class="panel-heading"><p class="panel-number">03 / Synthèse</p><h2 id="summary-title">Le résultat<br />de l’exercice.</h2></div>
+        <div class="summary-content">
+          <label>Solde initial<input class="money-input" name="opening" type="number" min="0" step="0.01" value="0" /></label>
+          <div class="result-box"><span>Solde final prévisionnel</span><strong data-balance>0,00 €</strong><small>Solde initial + recettes - dépenses</small></div>
+          <label class="full-width">Observations<textarea name="notes" rows="4" placeholder="Rapprochement bancaire, éléments à contrôler..." ></textarea></label>
+        </div>
+      </section>
+
+      <section class="validation-bar">
+        <label class="check-label"><input type="checkbox" name="validated" /> <span>Rapport vérifié par le trésorier</span></label>
+        <button class="button button-accent" type="submit">Enregistrer le brouillon <span aria-hidden="true">↓</span></button>
+      </section>
+    </form>
+    <footer><span>Document interne · À conserver avec les justificatifs</span><span>Créé le <strong data-footer-date>—</strong></span></footer>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>

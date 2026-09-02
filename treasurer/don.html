@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Création d'un reçu fiscal de don" />
+  <title>Reçu fiscal de don | Trésorerie</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="don.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar"><a class="brand" href="index.html">Trésorerie<span>.</span></a><a class="back-link" href="index.html">← Rapport financier</a><button class="button button-dark" type="button" data-print>Imprimer / PDF <span aria-hidden="true">↗</span></button></header>
+    <section class="hero"><div><p class="kicker">Reçu fiscal · Don</p><h1>Reçu de<br /><em>don.</em></h1></div><p class="hero-note">Préparez un reçu à partir d’un modèle vierge. Vérifiez l’éligibilité fiscale du don et les mentions applicables avant validation.</p></section>
+
+    <form id="don-form">
+      <section class="panel"><div class="panel-heading"><p class="panel-number">01 / Association bénéficiaire</p><h2>Qui reçoit<br />le don ?</h2></div><div class="field-grid"><label>Nom de l’association<input name="association" type="text" placeholder="Nom officiel" required /></label><label>Adresse<input name="address" type="text" placeholder="Adresse du siège" required /></label><label>Identifiant / SIREN<input name="identifier" type="text" placeholder="Numéro d’identification" /></label><label>Objet statutaire<input name="purpose" type="text" placeholder="Objet de l’association" /></label></div></section>
+      <section class="panel"><div class="panel-heading"><p class="panel-number">02 / Donateur</p><h2>Qui a<br />donné ?</h2></div><div class="field-grid"><label>Nom et prénom<input name="donor" type="text" placeholder="Nom du donateur" required /></label><label>Adresse<input name="donorAddress" type="text" placeholder="Adresse du donateur" required /></label><label>Nature du don<select name="nature"><option>Numéraire</option><option>Abandon de frais</option><option>Don en nature</option></select></label><label>Mode de versement<select name="payment"><option>Virement bancaire</option><option>Chèque</option><option>Espèces</option><option>Carte bancaire</option></select></label></div></section>
+      <section class="panel"><div class="panel-heading"><p class="panel-number">03 / Don et reçu</p><h2>Les détails<br />du versement.</h2></div><div class="field-grid"><label>Montant du don (€)<input name="amount" type="number" min="0" step="0.01" placeholder="0,00" required /></label><label>Date du don<input name="donDate" type="date" required /></label><label>Numéro du reçu<input name="receipt" type="text" value="DON-2026-001" required /></label><label>Lieu d’émission<input name="place" type="text" placeholder="Ville" /></label><label class="wide">Commentaire<textarea name="comment" rows="3" placeholder="Précision utile sur le don ou l’affectation..." ></textarea></label></div></section>
+      <section class="preview"><div class="preview-top"><div><p class="panel-number">Aperçu du reçu</p><h2>Reçu fiscal de don</h2></div><strong data-preview-amount>0,00 €</strong></div><div class="receipt-copy"><p>Association bénéficiaire : <strong data-preview-association>—</strong></p><p>Donateur : <strong data-preview-donor>—</strong></p><p>Reçu n° <strong data-preview-receipt>DON-2026-001</strong> · Don reçu le <strong data-preview-date>—</strong></p><p>La somme de <strong data-preview-amount-text>zéro euro</strong> a été versée au titre d’un don. Ce reçu est établi sous la responsabilité de l’association bénéficiaire, selon les règles fiscales en vigueur.</p></div></section>
+      <section class="validation-bar"><label class="check-label"><input type="checkbox" name="verified" required /> <span>Informations vérifiées avant émission</span></label><button class="button button-accent" type="submit">Enregistrer le brouillon <span aria-hidden="true">↓</span></button></section>
+    </form>
+    <footer><span>Conserver le reçu et le justificatif du don</span><span class="status"><span class="state-dot"></span><span data-status>Brouillon</span></span></footer>
+  </main>
+  <script src="don.js"></script>
+</body>
+</html>
